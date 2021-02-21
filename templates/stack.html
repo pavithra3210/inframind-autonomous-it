@@ -1,0 +1,159 @@
+<html>
+    <head>
+        <title>Aws Automation</title>
+        <style type="text/css">
+
+            .stextbox
+            {
+                height:30px;
+                width:100%;
+                margin-bottom: 10px;
+            }	
+            .text-styling{
+                color: rgb(49, 49, 49);
+                margin-bottom: 4px;
+            }
+            input[type=text] {
+                width: 100%;
+                padding: 10px 10px;
+                margin-bottom:17px;
+                box-sizing: border-box;
+                margin-top: 10px;
+                
+
+            }
+            label{
+                margin-top: 3px;
+                color: rgb(41, 41, 41);
+                font-family: Arial, Helvetica, sans-serif;
+                font-size:14;
+            }
+            input[type=password] {
+                width: 100%;
+                padding: 10px 10px;
+                margin-bottom:17px;
+                box-sizing: border-box;
+                
+            }
+        
+        </style>
+    </head>
+    <body style="padding:0px;margin:0px">
+        <div>
+            <!-- Header -->
+            <div style="height: 50px;width: 100%;background-color:#207398">
+                    <!-- <img src="../aws.png" style="height: 30px;width: 40px;"> -->
+            </div>
+            <!-- body -->
+            <div style="display: flex;flex-direction: column;padding:50px 200px;margin-left: 30px;" id="box">
+                <div style="margin-bottom: 30px;">
+                    <label style="font-size: 22;">Stack Details</label>
+                </div>
+                <form action="/data" method="post">
+                <div style="display: flex;flex-direction: row;">
+
+                    <!-- form -->
+                    
+                    <div style="display: flex;flex-direction: row;width: 70%;">
+                        <div style="width:100%;background-color:#dfe6e9;padding:20px 20px;margin-bottom:20px;box-shadow: 0 4px 6px 0 rgba(187, 187, 187, 0.2), 0 4px 4px 0 rgba(182, 182, 182, 0.19);display: flex;flex-direction: row;">
+
+                        
+                        <div style="display:flex;flex-direction:column;margin-right: 50px;">
+                            <div style="margin-top: 20px;width: 100%;">
+                                <div style="display: flex;flex-direction: row;width: 100%;padding-bottom: 20px;">
+                                    <div style="width: 15%;margin-right: 50px;">
+                                        <label style="font-weight: bold;">Stack Name</label>
+                                    </div>
+                                    <div style="width: 85%">
+                                        <label id="stackname"></label>
+                                    </div>
+                                </div>
+                                <div style="display: flex;flex-direction: row;width: 100%;padding-bottom: 20px;">
+                                    <div style="width: 15%;margin-right: 50px;">
+                                        <label style="font-weight: bold;">Stack Id</label>
+                                    </div>
+                                    <div style="width: 85%">
+                                        <label id="stackid"></label>
+                                    </div>
+                                </div>
+                                <div style="display: flex;flex-direction: row;width: 100%;padding-bottom: 20px;">
+                                    <div style="width: 15%;margin-right: 50px;">
+                                        <label style="font-weight: bold;">Stack Status</label> 
+                                    </div>
+                                    <div style="width: 85%">
+                                        <label id="stackstatus"></label>
+                                    </div>
+                                </div>
+                                <div style="display: flex;flex-direction: row;width: 100%;padding-bottom: 20px;">
+                                    <div style="width: 15%;margin-right: 50px;">
+                                        <label for="sname" style="font-weight: bold;">Creation Time</label>
+                                    </div>
+                                    <div style="width: 85%">
+                                        <label for="sname" id="time"></label>
+                                    </div>
+                                </div>
+                                <div style="display: flex;flex-direction: row;width: 100%;padding-bottom: 20px;">
+                                    <div style="width: 15%;margin-right: 50px;">
+                                        <label style="font-weight: bold;">Output URL</label>
+                                    </div>
+                                    <div style="width: 85%">
+                                        <label id="output"></label>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                        
+
+                    
+
+                    <!-- Button -->
+                    <div style="margin-left: 30px;display: flex;flex-direction: column;">
+                        <label style="font-size: 18;margin-bottom: 10px;">Description</label>
+                        <label style="width: 250px;text-align: justify;line-height: 1.8; color: rgb(167, 167, 167);font-family: Arial, Helvetica, sans-serif;">
+                            The solution creates two Ec2 instance with an wordpress installed along with an elastic load balancer 
+                            which helps to distribute the workloads across multiple computer resources. It improves
+                            agility, resilience and automates the application lifecycle in various stages by reducing the manual intervention.
+                        </label>
+
+                    </div>
+
+                    
+                </div>
+                
+            </form>     
+
+                    
+
+                </div>
+
+            </div>
+
+        </div>
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+        <script>
+
+
+            $(function() {
+                $.ajax({
+        
+                    url: '/stack-information',
+                    type: 'POST',
+                }).done(function(data){
+
+                    console.log(data)
+                    document.getElementById("stackname").textContent = data.Stacks[0].StackName;
+                    document.getElementById("stackid").textContent =data.Stacks[0].StackId ;
+                    document.getElementById("stackstatus").textContent = data.Stacks[0].StackStatus;
+                    document.getElementById("time").textContent = data.Stacks[0].CreationTime;
+                    document.getElementById("output").textContent = data.Stacks[0].Outputs[0].OutputValue;
+                   
+
+
+                })
+            })
+        </script>
+    </body>
+</html>

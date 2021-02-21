@@ -1,0 +1,154 @@
+<html>
+    <head>
+        <title>Aws Automation</title>
+        <style type="text/css">
+
+            .stextbox
+            {
+                height:30px;
+                width:100%;
+                margin-bottom: 10px;
+            }	
+            .text-styling{
+                color: rgb(49, 49, 49);
+                margin-bottom: 4px;
+            }
+            input[type=text] {
+                width: 100%;
+                padding: 10px 10px;
+                margin-bottom:17px;
+                box-sizing: border-box;
+                margin-top: 10px;
+                
+
+            }
+            label{
+                margin-top: 3px;
+                color: rgb(41, 41, 41);
+                font-family: Arial, Helvetica, sans-serif;
+                font-size:14;
+            }
+            input[type=password] {
+                width: 100%;
+                padding: 10px 10px;
+                margin-bottom:17px;
+                box-sizing: border-box;
+                
+            }
+        
+        </style>
+    </head>
+    <body style="padding:0px;margin:0px">
+        <div>
+            <!-- Header -->
+            <div style="height: 50px;width: 100%;background-color:#207398">
+                    <!-- <img src="../aws.png" style="height: 30px;width: 40px;"> -->
+            </div>
+            <!-- body -->
+            <div style="display: flex;flex-direction: column;padding:50px 200px;margin-left: 50px;">
+                <div style="margin-bottom: 30px;">
+                    <label style="font-size: 22;">Automation of AWS cloud formation process.</label>
+                </div>
+                <form action="/data" method="post">
+                <div style="display: flex;flex-direction: row;">
+
+                    <!-- form -->
+                    
+                    <div style="display: flex;flex-direction: column;width: 60%;">
+                        <div style="background-color:#dfe6e9;padding:20px 45px;margin-bottom:20px;box-shadow: 0 4px 6px 0 rgba(187, 187, 187, 0.2), 0 4px 4px 0 rgba(182, 182, 182, 0.19);">
+                            
+                            
+                            <div>
+                                <h3 style="font-weight:bolder;font-family: Arial, Helvetica, sans-serif;">Creating and Customizing Stack</h3>
+                                <label for="sname">Stack Name</label>
+                            
+                                <input class="stextbox" type="text" value="" id="sname" name="sname">
+                                
+                                <br/>
+                                <div style="margin:10px 0px;">
+                                    <input type="radio" id="default" name="select" value="default">
+                                    <label for="default">Default</label>
+                                    <input type="radio" id="customize" name="select" value="customize">
+                                    <label for="customize">Customise</label><br>
+                                    
+                                </div>
+                                <br>
+                            </div>
+
+                            
+                        </div>
+                        <div style="background-color:#dfe6e9;padding:20px 45px;margin-bottom:10px;box-shadow: 0 4px 6px 0 rgba(168, 168, 168, 0.2), 0 4px 4px 0 rgba(161, 161, 161, 0.19);">
+                            <h3 style="font-weight:bolder;font-family: Arial, Helvetica, sans-serif;">Customise your Stack</h3>
+                    
+                            <label name="description" for="description" class="name" style="margin-bottom: 10px;">Description</label>
+                            <input type="text" value="Discription about the instance type you are about to create." id="description" name="description">
+                            
+                            <label for ="keypair" class="name" >keyName</label>
+                            <input name="keypair" type="text" value="test" id="keypair">
+                            
+
+                            <label  for ="instancetype" class="name" >InstanceType</label>
+                            <input name="instancetype" type="text" value="Instance Type" id="instancetype">
+                            
+
+                            <label for="dbname" class="name" >DBName</label>
+                            <input name="dbname" type="text" value="wordpressdb" id="dbname">
+                            
+
+                            <label for="dbuser" class="name" >DBUser</label>
+                            <input name="dbuser" type="text" value="wordpress" id="dbuser">
+                            
+
+                            <label for="dbpassword" class="name" >DBPassword</label>
+                            <input name="dbpassword" type="password" value="admin" id="dbpassword">
+                            
+
+                            <label for="dbrootpassword" class="name" >DBRootPassword</label>
+                            <input name="dbrootpassword" type="password" value="password" id="dbrootpassword">
+                            
+                            
+
+                            <label id="sshlocation" class="name" >SSHLocation</label>
+                            <input  name="sshlocation" type="text" value="0.0.0.0/0" id="sshlocation">
+                            
+                            <br>
+                            <br>
+                            
+
+                            
+                        </div>
+
+                    </div>
+
+                    <!-- Button -->
+                    <div style="margin-left: 30px;display: flex;flex-direction: column;">
+                        <input type="submit" value="Launch" style="width: 250px; height: 40px;margin-bottom: 15px;border: none; 
+                        background: #207398; color: white;
+                        box-shadow: 0 4px 6px 0 rgba(187, 187, 187, 0.2), 0 4px 4px 0 rgba(182, 182, 182, 0.19);"></input>
+                       
+                        <button value="Cancel" style="width: 250px; height: 40px;margin-bottom: 10px;
+                        background-color: white; color:black;border-width:2px;border-color: #d2d6dd;
+                        box-shadow: 2px 6px 6px 5px rgba(187, 187, 187, 0.10), 0 4px 4px 0 rgba(182, 182, 182, 0.19);">Cancel</button>
+                        
+                        <label style="width: 250px;text-align: justify;line-height: 1.8; color: rgb(167, 167, 167);font-family: Arial, Helvetica, sans-serif;">
+                            The solution creates two Ec2 instance with an wordpress installed along with an elastic load balancer 
+                            which helps to distribute the workloads across multiple computer resources. It improves
+                            agility, resilience and automates the application lifecycle in various stages by reducing the manual intervention.
+                        </label>
+
+                    </div>
+
+                    
+                </div>
+                
+            </form>     
+
+                    
+
+                </div>
+
+            </div>
+
+        </div>
+    </body>
+</html>
